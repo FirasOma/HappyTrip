@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block home %}
+    <section id="hero" class="d-flex align-items-center">
+        <div class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
+            <div class="row" align="center">
+                <div class="col-lg-8">
+                    <h1 style="margin-left: 390px; margin-top: 55px">Please <span>Sign In</span></h1>
+                    {# <h2> Choisissez Votre Destination Et Profitez Nos Offres !</h2> #}
+                    <form method="post">
+                        <div class="container" style="margin-top: -59px; margin-left: 200px">
+                        {% if error %}
+                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+                            <label for="inputEmail"
+                                   style="padding-right: 184px;margin-bottom: 16px;margin-right: 156px;font-size: 17px;">Email</label>
+                            <br>
+                            <input type="email"  style="color:#212529; width: 400px"
+                                   name="email" id="inputEmail"
+                                   class="btn-menu" placeholder="example@gmail.com"
+                                   oninvalid="InvalidMsg(this);" required="required"><br>
+                            <script>
+                                function InvalidMsg(textbox) {
+
+                                    if (textbox.value === '') {
+                                        textbox.setCustomValidity
+                                        ('Email is required !');
+                                    } else if (textbox.validity.typeMismatch) {
+                                        textbox.setCustomValidity
+                                        ('Please enter an email address which is valid!');
+                                    } else {
+                                        textbox.setCustomValidity('');
+                                    }
+
+                                    return true;
+                                }
+                            </script>
+                            <br>
+                            <label for="inputPassword"
+                                   style="padding-right: 184px;margin-bottom: 16px;margin-right: 117px;font-size: 17px;">Password</label><br>
+                            <input style="color:#212529;width: 400px" type="password" name="password" id="inputPassword"
+                                   class="btn-menu animated fadeInUp scrollto" placeholder="******"
+                                   oninvalid="InvalidPassword(this);" required="required"><br>
+                            <script>
+                                function InvalidPassword(textbox) {
+
+                                    if (textbox.value === '') {
+                                        textbox.setCustomValidity
+                                        ('Password is required !');
+                                    } else {
+                                        textbox.setCustomValidity('');
+                                    }
+
+                                    return true;
+                                }
+                            </script>
+                            <br>
+
+
+
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                            <!--<br>-->
+                            <button class="btn-menu" type="submit"
+                                    style="padding-right: -35px;font-size:15px;background-color: #cda45e;">
+                                Sign in
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Hero -->
+
+{% endblock %}
+
+
+{% block body %}
+
+{% endblock %}

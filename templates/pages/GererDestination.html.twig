@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="jumbotron text-center">
+        <div class="container">
+
+            <a class="nav-link" href="{{ path('ajouterUneDestination') }}">ajouter une destination </a>
+            <a class="nav-link" href="{{ path('modfierUneDestination') }}">modifier une destination  </a>
+            <a class="nav-link" href="{{ path('supprimerUneDestination') }}">supprimer ue destination  </a>
+        </div>
+    </div>
+{% endblock %}

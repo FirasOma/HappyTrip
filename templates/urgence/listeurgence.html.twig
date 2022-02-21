@@ -1,0 +1,25 @@
+
+{% block body %}
+    <h1>List Urgences</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Localisation</th>
+                <th>Nom</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for urgence in urgences %}
+            <tr>
+                <td>{{ urgence.id }}</td>
+                <td>{{ urgence.type }}</td>
+                <td>{{ urgence.localisation }}</td>
+                <td>{{ urgence.nom }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

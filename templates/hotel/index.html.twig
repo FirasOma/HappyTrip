@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+
+
+
+{% block title %}Hotel Index!{% endblock %}
+
+{% block body %}
+<h1>
+    Liste des hotels
+</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="row" bgcolor="#faebd7">ID</th>
+            <th scope="row" bgcolor="#faebd7">Destination</th>
+            <th scope="row" bgcolor="#faebd7">Nom</th>
+            <th scope="row" bgcolor="#faebd7">Nombres d'etoiles</th>
+            <th scope="row" bgcolor="#faebd7">options</th>
+            <th scope="row" bgcolor="#faebd7">Prix</th>
+            <th scope="row" bgcolor="#faebd7">Image</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for h in Hotel %}
+            <tr style=""...>
+                <td>{{ h.id }}</td>
+                <td>{{ h.Destination }}</td>
+                <td>{{ h.Nom }}</td>
+                <td>{{ h.NombreEtoile }}</td>
+                <td>{{ h.option }}</td>
+                <td>{{ h.Prix}}</td>
+                <td>{{ h.Image }}</td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+
+
+    </table>
+
+{% endblock %}

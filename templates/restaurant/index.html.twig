@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block home %}
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+
+
+        <div class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
+            <div class="row">
+                <div class="col-lg-8">
+
+                    <h1>Welcome to <span>HappyTrip</span></h1>
+                    <h2> Take a look on our Restaurants </h2>
+
+
+                    <div class="btns">
+                        <a href="#restaurants" class="btn-menu animated fadeInUp scrollto">Restaurant </a>
+                        {% if app.user %}
+                            <a href="#" class="btn-book animated fadeInUp scrollto">Book Now</a>
+                        {% else %}
+                            <a href="{{ path('app_login') }}" class="btn-book animated fadeInUp scrollto">Book Now</a>
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section><!-- End Hero -->
+
+{% endblock %}
+
+{% block body %}
+    {% block Restaurant %}
+<section id="restaurant" class="chefs">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Restaurant</h2>
+            <p>Restaurant List</p>
+            <form action="" method="get">
+                <div class="input-group" style="width: 24%;float: right;">
+                    <div class="form-outline">
+                        <input type="text" class="form-control" id="search" name='q' placeholder="Search" style="width:218px;"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary" >
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </form>
+            <br>
+        </div>
+        <div class="row">
+            {% for restaurant in restaurants %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="member" data-aos="zoom-in" data-aos-delay="100" id="hotelitem">
+
+                        <img id="image" src="{{ vich_uploader_asset(restaurant,'imageRestaurant') }}" class="img-fluid">
+                        <div class="member-info">
+                            <div class="member-info-content">
+                                <a href="{{ path('restaurant_show',{'id':restaurant.id}) }}">
+                                    <h4 id="hotelname">{{ restaurant.nom }}</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+</section><!-- End Chefs Section --
+{% endblock %}
+{% endblock %}
+

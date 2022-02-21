@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <h1>Add Event </h1>
+    </div>
+
+
+    {{ form_start(form) }}
+    <div class="container">
+    <form method="post" role="form" class="php-email-form">
+        <div class="form-row">
+
+            <div class="col-md-6 form-group">
+                {{ form_widget(form.name,{'attr':{'class':"input-form",'placeholder':'Event Name'}}) }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                {{ form_widget(form.description,{'attr':{'class':"input-form",'placeholder':'Description'}}) }}
+            </div>
+        </div>
+
+        <div class="form-row">
+            {{ form_label(form.canncel, 'cancel'|trans, {'label_attr' : {'class': 'control-label' }}) }}
+            {{ form_widget(form.cancel) }}
+        </div>
+        <div class="col-md-6 form-group">
+            {{ form_label(form.imageEvent, 'image'|trans, {'label_attr' : {'class': 'control-label' }}) }}
+            {{ form_widget(form.imageEvent) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.datEvent, 'Date'|trans, {'label_attr' : {'class': 'control-label' }}) }}
+            {{ form_widget(form.datEvent) }}
+            </div>
+
+        <button type="submit" class="site-btn">{{ button_label|default('Save') }}</button>
+
+    </form>
+    </div>
+
+    {{ form_end(form) }}
+{% endblock %}
+{% block content %}
+
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% block reservation %}
+        <section id="book-a-table" class="book-a-table">
+            <div class="container">
+                <form action="post">
+                    <div class="section-title" style="padding-bottom: 0px">
+                        <h2>Amount to pay</h2>
+                        <label >
+                           <p id="total">{{ total }}DT</p>
+                        </label>
+
+                            <input type="hidden" id="{{ total }}" name="totalhidden">
+                    </div>
+                </form>
+                <button class="input-form" type="submit" id="checkout-button" >Checkout</button>
+            </div>
+        </section>
+
+    {% endblock %}
+{% endblock %}
+{% block js %}
+    <script src="https://js.stripe.com/v3/"></script>
+    <script type="text/javascript">
+        // Create an instance of the Stripe object with your publishable API key
+        var stripe = Stripe('pk_test_51IaP1yJTzGa3VAzuuqCKwfEImxi8AsB8XArg2bxs7eh5VsyQCTXZFya4020t1SzMo9netx6Ud9EcV96HmfnwkjQy00O4JevcGZ');
+        var checkoutButton = document.getElementById('checkout-button');
+
+       var tot = document.getElementById('total').innerText.valueOf();
+
+        console.log(tot);
+
+       //var url = '/payment/create-checkout-session';
+        checkoutButton.addEventListener('click', function() {
+
+            // Create a new Checkout Session using the server-side endpoint you
+            // created in step 3.
+            fetch('/payment/create-checkout-session', {
+                method: 'POST'
+            })
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(session) {
+                    return stripe.redirectToCheckout({ sessionId: session.id });
+                })
+                .then(function(result) {
+                    // If `redirectToCheckout` fails due to a browser or network
+                    // error, you should display the localized error message to your
+                    // customer using `error.message`.
+                    if (result.error) {
+                        alert(result.error.message);
+                    }
+                })
+                .catch(function(error) {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+
+    <script src="{{ asset('assets/vendor/jquery/jquery-2.2.4.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jquery.easing/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
+    <script src="{{ asset('assets/vendor/owl.carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/venobox/venobox.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+{% endblock %}

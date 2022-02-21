@@ -1,0 +1,29 @@
+{% extends 'base2.html.twig' %}
+{% block home %}
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+        <div class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
+            <div class="row">
+                {{ form_start(form) }}
+                <div class="row">
+                    <div class="col-md-4">{{ form_row(form.NomDes) }}</div>
+                </div>
+                {{ form_widget(form) }}
+                <button class="btn btn-primary">Créer </button>
+                {{ form_end(form) }}
+
+
+            </div>
+        </div>
+    </section><!-- End Hero -->
+{% endblock %}
+
+
+
+
+{% block body %}
+
+{% endblock %}
+
+
+

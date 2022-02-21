@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block home %}
+    <section id="hero" class="d-flex align-items-center">
+        <div  class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
+            <div class="row" align="center">
+                <div class="col-lg-8">
+
+                    <h1 style="margin-left: 390px; margin-top: 55px"><span>Register</span></h1>
+                    {{ form_start(registrationForm,{'method':'post','action':path('app_register')}) }}
+                    <div class="container" style="margin-top: -45px; margin-left: 200px">
+
+                    {% for flashError in app.flashes('verify_email_error') %}
+                        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+                    {% endfor %}
+
+                    {{ form_start(registrationForm) }}
+                        {{ form_widget(registrationForm.username,{'attr':{'class':'btn-menu','style':'pa-right: 184px;margin-bottom: 16px;width:400px;color:#212529;','placeholder':'Username'}}) }}
+                        <br>
+                            {{ form_widget(registrationForm.email,{'attr':{'class':'btn-menu','style':'pa-right: 184px;margin-bottom: 16px;width:400px;color:#212529;','placeholder':'Email Address'}}) }}
+                          {{ form_errors(registrationForm.email) }}
+                            <br>
+                            {{ form_widget(registrationForm.plainPassword,{'attr':{'class':'btn-menu','style':'pa-right: 184px;margin-bottom: 16px;width:400px;color:#212529;','placeholder':'Password'}}) }}
+
+                            {{ form_errors(registrationForm.plainPassword)}}
+                        <br>
+
+                            <div style="margin-left: -72px">
+                            <label style="margin-left:110px;margin-bottom: 16px;margin-right: -150px;font-size: 21px;">Agree to Terms</label>
+                                {{ form_widget(registrationForm.agreeTerms,{'attr':{'class':'btn-menu','style':'pa-right: 184px; margin-left: -220px;margin-bottom: 16px;width:400px;color:#212529;','placeholder':'********'}}) }}<br>
+                        <button type="submit" class="btn-menu" style="margin-left: 60px;padding-right: -35px;font-size:15px;background-color: #cda45e;">Register</button>
+                            </div>
+                        <br>
+                    {{ form_end(registrationForm) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+
+{% block body %}
+
+{% endblock %}

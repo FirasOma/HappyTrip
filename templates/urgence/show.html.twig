@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Urgence{% endblock %}
+
+{% block body %}
+    <h1>Urgence</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ urgence.id }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ urgence.type }}</td>
+            </tr>
+            <tr>
+                <th>Localisation</th>
+                <td>{{ urgence.localisation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('urgence_index') }}">back to list</a>
+
+    <a href="{{ path('urgence_edit', {'id': urgence.id}) }}">edit</a>
+
+    {{ include('urgence/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,24 @@
+{% block body %}
+    <h1>Liste de Reservation</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Mail</th>
+                <th>Date Reservation</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservationtransport in reservationtransports %}
+            <tr>
+                <td>{{ reservationtransport.nom }}</td>
+                <td>{{ reservationtransport.type }}</td>
+                <td>{{ reservationtransport.mail }}</td>
+                <td>{{ reservationtransport.datereservation|date('d-m-Y-h:H:s') }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <h1>Add Hotel </h1>
+    </div>
+
+
+    {{ form_start(form) }}
+<div class="container">
+    <form method="post" role="form" class="php-email-form">
+        <div class="form-row">
+            <!--hotel name--!>
+            <div class="col-md-6 form-group">
+                {{ form_widget(form.Nom,{'attr':{'class':"input-form",'placeholder':'Hotel Name'}}) }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                {{ form_widget(form.NombreEtoile,{'attr':{'class':"input-form",'placeholder':'Stars Number'}}) }}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <input type="number" name="age"  id="age" placeholder="Your Age" data-rule="minlen:4" data-msg="Please enter your age" />
+                <div class="validate"></div>
+            </div>
+            <div class="col-md-6 form-group">
+                <input type="number" name="numtel" id="numtel" placeholder="Your phone number" data-rule="minlen:4" data-msg="Please enter your phone number" />
+                <div class="validate"></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+            <div class="validate"></div>
+        </div>
+
+        <div class="form-group">
+            <input type="text" class="form-control" name="localisation" id="localisation" placeholder="localisation" data-rule="minlen:4" data-msg="Please enter your place" />
+            <div class="validate"></div>
+        </div>
+
+        <div class="mb-3">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your message has been sent. Thank you!</div>
+        </div>
+        <div class="text-center"><button type="submit">Send Message</button></div>
+    </form>
+</div>
+
+{{ form_end(form) }}
+{% endblock %}
+{% block content %}
+
+
+{% endblock %}
+
+{#{{ form_start(form) }}#}
+
+{#{{ form_widget(form) }}#}
+{#<button> Ajouter </button>#}
+
+
+{#{{ form_end(form) }}#}

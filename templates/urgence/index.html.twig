@@ -1,0 +1,24 @@
+{% extends 'base1.html.twig' %}
+
+{% block body %}
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+        <div class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1>Welcome to <span>HappyTrip</span></h1>
+                    <br>
+                    <h2> Did you had any kind of troubles ? </h2>
+                    <h2> Let us know down below. </h2>
+                        <br>
+                        <div style="margin-left: -17px">
+                         <a href="{{ path('contact') }}" class="btn-book animated fadeInUp scrollto">Send Message</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Hero -->
+{% endblock %}
+
+
+

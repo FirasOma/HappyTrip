@@ -1,0 +1,46 @@
+
+{% extends 'base.html.twig' %}
+
+{% block home %}
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+        <div  class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
+            <div class="row" align="center">
+                <div class="col-lg-8">
+                    <h1 style="margin-left: 390px; margin-top: 55px"><span>Reservation Restaurant</span></h1>
+                    {{ form_start(reservationrestaurantForm,{'method':'post','action':path('reservationres')}) }}
+                    <div class="container" style="margin-top: -45px; margin-left: 200px">
+
+                    {{ form_start(reservationrestaurantForm) }}
+                        {{ form_widget(reservationrestaurantForm.nom,{'attr':{'class':'btn-menu','style':'pa-right: 184px;margin-bottom: 16px;width:400px;color:#212529;','placeholder':'Nom'}}) }}
+                        <br>
+                            {{ form_widget(reservationrestaurantForm.tel,{'attr':{'class':'btn-menu','style':'pa-right: 184px;margin-bottom: 16px;width:400px;color:#212529;','placeholder':'Tel'}}) }}
+                          {{ form_errors(reservationrestaurantForm.tel) }}
+                            <br>
+                            {{ form_widget(reservationrestaurantForm.nombreplace,{'attr':{'class':'btn-menu','style':'pa-right: 184px;margin-bottom: 16px;width:400px;color:#212529;','placeholder':'Nbr de place'}}) }}
+                        
+                            {{ form_errors(reservationrestaurantForm.nombreplace)}}
+
+                            <br>
+                            {{ form_widget(reservationrestaurantForm.reservationdate)}}
+                        
+                            {{ form_errors(reservationrestaurantForm.reservationdate)}}
+                            <br>
+                            
+                            {{ form_widget(reservationrestaurantForm.book,{'attr':{'class':'btn-menu','style':'pa-right: 184px;margin-bottom: 16px;width:150px;color:#212529;'}}) }}
+                    
+
+                            
+                        <br>
+                    {{ form_end(reservationrestaurantForm) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block body %}
+
+{% endblock %}

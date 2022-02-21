@@ -1,0 +1,5 @@
+easy_admin:
+    entities:
+        - App\Entity\Hotel
+        - App\Entity\Reclamation
+        - App\Entity\User

@@ -1,0 +1,22 @@
+{% block body %}
+    <h1>Liste de Restaurant</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Localisation</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for restaurant in restaurants %}
+            <tr>
+                <td>{{ restaurant.nom }}</td>
+                <td>{{ restaurant.localisation }}</td>
+                <td>{{ restaurant.description }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

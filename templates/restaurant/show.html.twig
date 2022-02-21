@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+{% block home %}
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+
+
+        <div class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
+            <div class="row">
+                <div class="col-lg-8">
+
+                    <h1>Welcome to <span>HappyTrip</span></h1>
+                    <h2> Take a look on our Restaurants </h2>
+
+                    <div class="btns">
+                        <a href="#" class="btn-menu animated fadeInUp scrollto">Restaurant </a>
+                        {% if app.user %}
+                            <a href="#" class="btn-book animated fadeInUp scrollto">Book Now</a>
+                        {% else %}
+                            <a href="{{ path('app_login') }}" class="btn-book animated fadeInUp scrollto">Login</a>
+                        {% endif %}
+                        <br>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section><!-- End Hero -->
+
+{% endblock %}
+
+{% block body %}
+
+    {% block About %}
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="about-img">
+                        <img src=" {{ vich_uploader_asset(restaurant,'imageRestaurant') }}" alt="">
+                        </div><br>
+                        <h3>Localisation : </h3>
+                        <p>{{ restaurant.localisation }}</p>
+                        <div class="map">
+                        <iframe src="https://maps.google.com/maps?q={{ restaurant.localisation }} }}&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                        <h5><i class="fa fa-map-marker style-map" aria-hidden="true"></i> {{ restaurant.localisation }} </h5>
+                        <br>
+                        <div align = "left">
+                                <table>
+                                    <h3 style="font-family: Arial;"><br/>Description :</h3><br>
+                                    <p>{{restaurant.description}}<br></p>
+                                </table>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    {% endblock %}
+
+{% endblock %}

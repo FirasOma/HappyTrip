@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+{% block home %}
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+
+
+        <div class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
+            <div class="row">
+                <div class="col-lg-8">
+
+                    <h1>Welcome to <span>HappyTrip</span></h1>
+                    <h2> Take a look on our events </h2>
+
+                    <div class="btns">
+                        <a href="#" class="btn-menu animated fadeInUp scrollto">events </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section><!-- End Hero -->
+
+{% endblock %}
+
+{% block body %}
+
+    {% block About %}
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+
+                <div class="row">
+                    <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
+
+                        <div class="about-img">
+                            <img src=" {{ vich_uploader_asset(details,'imageEvent') }}" alt="">
+                        </div><br>
+                    </div>
+                    <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                        <h3>{{ details.name }}</h3>
+                        <br>
+                        <!--description-->
+                        <p class="font-italic">{{ details.description}}</p>
+
+                    </div>
+                    <div><p class="font-italic">{{ details.phone}}</p></div>
+                </div>
+
+            </div>
+        </section><!-- End About Section -->
+    {% endblock %}
+
+{% endblock %}

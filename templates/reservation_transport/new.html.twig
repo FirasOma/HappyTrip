@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ReservationTransport{% endblock %}
+
+{% block body %}
+    <h1>Create new ReservationTransport</h1>
+
+    {{ include('reservation_transport/_form.html.twig') }}
+
+    <a href="{{ path('reservation_transport_index') }}">back to list</a>
+{% endblock %}

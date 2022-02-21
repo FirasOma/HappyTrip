@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% block reservation %}
+        <section id="book-a-table" class="book-a-table">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>Reservation</h2>
+
+                </div>
+
+{#                {{ form_start(registrationForm,{'method':'post','action':path('app_register')}) }}#}
+
+{#                <form class="php-email-form"#}
+{#                      data-aos="fade-up" >#}
+                    {{ form_start(form) }}
+
+                    <div class="form-row">
+                        <div class="col-lg-4 col-md-6 form-group ">
+                            <label class="form-label">Start Date</label>
+
+                            {{ form_widget(form.startDate,{'attr':{'class':'form-control','style':'background:#fff;color:black;'}}) }}
+                        </div>
+                        <div class="col-lg-4 col-md-6 form-group">
+                            <label class="form-label">End Date</label>
+                            {{ form_widget(form.endDate,{'attr':{'class':'form-control','style':'background:#fff;color:black;'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-4 col-md-6 form-group">
+                            <label class="form-label">Number of nights</label>
+                            {{ form_widget(form.numberOfNights,{'attr':{'class':'form-control','style':'background:#fff;color:black;'}}) }}
+                        </div>
+                        <div class="col-l   g-4 col-md-6 form-group">
+                            <label class="form-label">Rooms Number</label>
+                            {{ form_widget(form.numberOfrooms,{'attr':{'class':'form-control','style':'background:#fff;color:black;width: 66%;'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-4 col-md-6 form-group">
+                            <label class="form-label">Number of adults</label>
+                            {{ form_widget(form.numberOfAdults,{'attr':{'class':'form-control','style':'background:#fff;color:black;'}}) }}
+                        </div>
+                        <div class="col-lg-4 col-md-6 form-group">
+                            <label class="form-label">Number of childs</label>
+                            {{ form_widget(form.numberOfChilds,{'attr':{'class':'form-control','style':'background:#fff;color:black;'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-4 col-md-6 form-group">
+                            {{ form_widget(form.roomType,{'attr':{'class':'form-control','style':'background:#fff;color:black;'}}) }}
+                        </div>
+
+                    </div>
+                    {{ form_widget(form.Book,{'attr':{'class':'button-book','style':'color:white;'}}) }}
+                {{ form_end(form) }}
+            </div>
+        </section>
+
+    {% endblock %}
+{% endblock %}

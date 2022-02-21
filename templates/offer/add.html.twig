@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <h1>Add Offer </h1>
+    </div>
+
+
+    {{ form_start(form) }}
+    <div class="container">
+    <form method="post" role="form" class="php-email-form">
+        <div class="form-row">
+
+            <div class="col-md-6 form-group">
+                {{ form_widget(form.name,{'attr':{'class':"input-form",'placeholder':'Offer Name'}}) }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                {{ form_widget(form.description,{'attr':{'class':"input-form",'placeholder':'Description'}}) }}
+            </div>
+        </div>
+
+        <div class="form-row">
+            {{ form_label(form.cancel, 'cancel'|trans, {'label_attr' : {'class': 'control-label' }}) }}
+            {{ form_widget(form.cancel) }}
+        </div>
+        <div class="col-md-6 form-group">
+            {{ form_label(form.imgOff, 'image'|trans, {'label_attr' : {'class': 'control-label' }}) }}
+            {{ form_widget(form.imgOff) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.createdAt, 'Date'|trans, {'label_attr' : {'class': 'control-label' }}) }}
+            {{ form_widget(form.createdAt) }}
+            </div>
+
+        <div class="form-group">
+            {{ form_label(form.dateBegin, 'Date'|trans, {'label_attr' : {'class': 'control-label' }}) }}
+            {{ form_widget(form.dateBegin) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.DateEnd, 'Date'|trans, {'label_attr' : {'class': 'control-label' }}) }}
+            {{ form_widget(form.DateEnd) }}
+        </div>
+        <button type="submit" class="site-btn">{{ button_label|default('Save') }}</button>
+
+    </form>
+    </div>
+
+    {{ form_end(form) }}
+{% endblock %}
+{% block content %}
+
+
+{% endblock %}

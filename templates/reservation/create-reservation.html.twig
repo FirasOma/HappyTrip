@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{% block reservation %}
+    <section id="book-a-table" class="book-a-table">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Confirm Reservation</h2>
+            <p>This reservation will cost you {{ res.total }} DT</p>
+            </div>
+
+            <div class="form-row">
+
+                <button class="button-book">
+                    <a href="{{ path('confirm',{'id':res.id,'total':res.total})}}" style="color:white;" >Confirm</a>
+                </button>
+                <button class="button-book">
+                    <a href="{{ path('reject',{'id':res.id})}}" style="color:white;" >Reject</a>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+
+{% endblock %}
+{% endblock %}

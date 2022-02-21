@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+{% block title 'Happy Trip !' %}
+
+{% block home %}
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+        <div class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
+            <div class="row">
+                {% for destination in destinations %}
+                <div class="col-lg-8">
+                    <h1> <span>
+                                 <div class="btns">
+                                  <a href="{{ path('destination.show' , {id: destination.id, slug: destination.slug}) }}">{{ destination.nomDes }}</a>
+                                </div>
+
+                             </span></h1>
+                    <h2>population:<span class="btns">{{ destination.population }}</span></h2>
+                    <h2>surface:<span class="btns">{{ destination.superficie }}</span></h2>
+
+
+
+                </div>
+                {% endfor %}
+
+
+            </div>
+            <div class="btns">
+                <a href="{{ path('AfficherDestinationsTrie' ) }}">Trier</a>
+            </div>
+        </div>
+    </section><!-- End Hero -->
+{% endblock %}
+
+
+
+{% block body %}
+<div class="jumbotron">
+    <div class="container">
+        {{ form_start(form) }}
+        <div class="form-row">
+            <div class="col">
+                {{ form_row(form.nom) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.maxPopulation) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.minSurface) }}
+            </div>
+            <div class="col">
+                <button class="btn btn-primary">Recherche</button>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base2.html.twig' %}
+{% block home %}
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center ">
+        <div class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
+            <h1 style="margin-top: 13em"; >Editer la destination</h1>
+
+        </div>
+    </section><!-- End Hero -->
+    <div class="row"  style="
+            margin-left: 5cm"; >
+        {{ form_start(form) }}
+
+        {{ form_widget(form) }}
+        <button class="btn btn-primary">Editer </button>
+        {{ form_end(form) }}
+
+
+    </div>
+{% endblock %}
+
+
+
+
+{% block body %}
+
+{% endblock %}
+
+
+
+

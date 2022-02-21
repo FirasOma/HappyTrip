@@ -1,0 +1,46 @@
+
+{% extends 'base.html.twig' %}
+
+{% block home %}
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+        <div  class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
+            <div class="row" align="center">
+                <div class="col-lg-8">
+                    <h1 style="margin-left: 390px; margin-top: 55px"><span>Reservation Transport</span></h1>
+                    {{ form_start(reservationtransportForm,{'method':'post','action':path('reservation')}) }}
+                    <div class="container" style="margin-top: -45px; margin-left: 200px">
+
+                    {{ form_start(reservationtransportForm) }}
+                        {{ form_widget(reservationtransportForm.nom,{'attr':{'class':'btn-menu','style':'pa-right: 184px;margin-bottom: 16px;width:400px;color:#212529;','placeholder':'Nom'}}) }}
+                        <br>
+                            {{ form_widget(reservationtransportForm.type,{'attr':{'class':'btn-menu','style':'pa-right: 184px;margin-bottom: 16px;width:400px;color:#212529;','placeholder':'Type'}}) }}
+                          {{ form_errors(reservationtransportForm.type) }}
+                            <br>
+                            {{ form_widget(reservationtransportForm.mail,{'attr':{'class':'btn-menu','style':'pa-right: 184px;margin-bottom: 16px;width:400px;color:#212529;','placeholder':'Email'}}) }}
+                        
+                            {{ form_errors(reservationtransportForm.mail)}}
+
+                            <br>
+                            {{ form_widget(reservationtransportForm.datereservation)}}
+                        
+                            {{ form_errors(reservationtransportForm.datereservation)}}
+                            <br>
+                            
+                            {{ form_widget(reservationtransportForm.book,{'attr':{'class':'btn-menu','style':'pa-right: 184px;margin-bottom: 16px;width:150px;color:#212529;'}}) }}
+                    
+
+                            
+                        <br>
+                    {{ form_end(reservationtransportForm) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block body %}
+
+{% endblock %}

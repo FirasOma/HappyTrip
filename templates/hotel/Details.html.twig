@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+{% block home %}
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+
+
+        <div class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
+            <div class="row">
+                <div class="col-lg-8">
+
+                    <h1>Welcome to <span>HappyTrip</span></h1>
+                    <h2> Take a look on our hotels </h2>
+
+                    <div class="btns">
+                        <a href="#" class="btn-menu animated fadeInUp scrollto">Hotels </a>
+                        {% if app.user %}
+                            <a href="#" class="btn-book animated fadeInUp scrollto">Book Now</a>
+                        {% else %}
+                            <a href="{{ path('app_login') }}" class="btn-book animated fadeInUp scrollto">Login</a>
+                        {% endif %}
+                        <br>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section><!-- End Hero -->
+
+{% endblock %}
+
+{% block body %}
+
+    {% block About %}
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+
+                <div class="row">
+                    <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
+
+                        <div class="about-img">
+                            <img src=" {{ vich_uploader_asset(details,'imageHotel') }}" alt="">
+                        </div><br>
+                        <h5>Adresse : </h5>
+                        <p>{{ details.adresse }}</p>
+                        <div class="map">
+                            <iframe src="https://maps.google.com/maps?q={{ details.adresse }} }}&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                        <!--hotel name and stars-->
+                        <h3>{{ details.name }}
+                            {% set nombre_etoiles = details.starsNumber %}
+
+                            {% for i in range(1, 5) %}
+                            {% if i <= nombre_etoiles %}
+                                <i class="fa fa-star style-etoile" > </i>
+                            {% else %}
+                                <span class="not-active"> </span>
+                            {% endif %}
+                            {% endfor %}
+                        </h3>
+
+
+                        <h5>  <i class="fa fa-map-marker style-map" aria-hidden="true"></i>&nbsp;&nbsp;   {{ details.localisation }}</h5>
+                        <br>
+                        <!--description-->
+                        <p class="font-italic">
+                       {{ details.description}}
+                        </p>
+                        {%if app.user and is_granted('ROLE_INTERNAUTE')%}
+                        <button class="button-book">
+                            <a href="{{ path('book-hotel',{'idhotel':details.id})}}" style="color:white;" >Book Now</a>
+                        </button>
+                            {{ form_start(form) }}
+                            <br/><br/>
+                            {{ form_widget(form.content,
+                                { attr: {'placeholder': 'Post a Comment', 'class': 'form-group', 'style': 'border-radius: 10px;
+                                 background-image: none; height: 150px; width: 530px; color: white; border-color: #CDA45E;  background-color: transparent;'}})}}<br/>
+                            <input type = "submit" value="comment" class = "button-book"
+                            style="background-color: #CDA45E; color: white"/>
+                            {{ form_end(form) }}
+                            {% else %}
+                            <h1 style = "color: white;">You need to be logged in to post a comment.</h1>
+                        {%endif%}
+                            <div align = "left">
+                                <table>
+
+                                    <h3 style="font-family: Arial;"><br/>Comments List:</h3><br>
+                                    {% for comment in allComments %}
+
+
+                                        {% if comment.hotel.id == hotel.id %}
+                                        <tr>
+                                            <th> Posted by {{ comment.user.username }}:<br> </th>
+                                        </tr>
+                                        <tr>
+                                            <td> {{ comment.content }}<br/> </td>
+                                        </tr>
+                                        {% endif %}
+                                    {% endfor %}
+                                </table>
+                            </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End About Section -->
+    {% endblock %}
+
+{% endblock %}

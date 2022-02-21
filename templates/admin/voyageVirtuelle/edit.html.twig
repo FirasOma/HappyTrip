@@ -1,0 +1,30 @@
+{% extends 'base2.html.twig' %}
+{% block home %}
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+        <div class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
+            <h1>Editer le voyage virtuelle</h1>
+            <div class="row">
+                {{ form_start(form) }}
+                <div class="row">
+                    <div class="col-md-4">{{ form_row(form.NomVille) }}</div>
+                </div>
+                {{ form_widget(form) }}
+                <button class="btn btn-primary">Editer </button>
+                {{ form_end(form) }}
+
+
+            </div>
+        </div>
+    </section><!-- End Hero -->
+{% endblock %}
+
+
+
+
+{% block body %}
+
+{% endblock %}
+
+
+

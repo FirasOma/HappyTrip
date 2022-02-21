@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block title  destination.nomDes%}
+{% block home %}
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+        <div class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1>Nom: <span>{{ destination.nomDes }}</span></h1>
+
+                    <h2 style="color: #fd7e14 ; font-weight: bold ; font-size: 25px">Introduction: </h2> <span>{{ destination.inforDes }}</span><br>
+                    <h2 style="color: #fd7e14 ; font-weight: bold ; font-size: 25px">Meteo: </h2> <span>{{ destination.meteo }}</span><br>
+                    <h2 style="color: #fd7e14 ; font-weight: bold ; font-size: 25px">Heure locale: </h2> <span>{{ destination.heureLocale }}</span><br>
+                    <h2 style="color: #fd7e14 ; font-weight: bold ; font-size: 25px">Population: </h2> <span>{{ destination.population }}</span><br>
+                    <h2 style="color: #fd7e14 ; font-weight: bold ; font-size: 25px">Sites touristiques: </h2> <span>{{ destination.sitesTouristiques }}</span><br>
+                    <h2 style="color: #fd7e14 ; font-weight: bold ; font-size: 25px">Site web: </h2> <span>{{ destination.siteWeb }}</span><br>
+                    <h2 style="color: #fd7e14 ; font-weight: bold ; font-size: 25px">Superficie: </h2> <span>{{ destination.superficie }}</span><br>
+                    <h2 style="color: #fd7e14 ; font-weight: bold ; font-size: 25px">Transport: </h2> <span>{{ destination.transport }}</span><br>
+
+
+
+                    <div class="btns">
+                        <a href="{{ path('AfficherDestinations') }}" class="btn-menu animated fadeInUp scrollto">Retour</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex align-items-center justify-content-center" data-aos="zoom-in" data-aos-delay="200">
+                    <a href="https://www.youtube.com/watch?v=GlrxcuEDyF8" class="venobox play-btn" data-vbtype="video" data-autoplay="true"></a>
+                </div>
+
+            </div>
+        </div>
+    </section><!-- End Hero -->
+{% endblock %}
+
+{% block body %}
+
+{% endblock %}
+
+

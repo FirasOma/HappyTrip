@@ -1,0 +1,24 @@
+{% block body %}
+    <h1>Liste de Reservation</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Tel</th>
+                <th>Nombre de Place</th>
+                <th>Date Reservation</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservationrestaurant in reservationrestaurants %}
+            <tr>
+                <td>{{ reservationrestaurant.nom }}</td>
+                <td>{{ reservationrestaurant.tel }}</td>
+                <td>{{ reservationrestaurant.nombreplace }}</td>
+                <td>{{ reservationrestaurant.reservationdate|date('d-m-Y-h:H:s') }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

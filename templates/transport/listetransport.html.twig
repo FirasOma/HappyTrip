@@ -1,0 +1,25 @@
+
+{% block body %}
+    <h1>Transport index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Localisation</th>
+                <th>Prix</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for transport in transports %}
+            <tr>
+                <td>{{ transport.id }}</td>
+                <td>{{ transport.type }}</td>
+                <td>{{ transport.localisation }}</td>
+                <td>{{ transport.prix }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

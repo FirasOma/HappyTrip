@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+{% block home %}
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+
+
+        <div class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
+            <div class="row">
+                <div class="col-lg-8">
+
+                    <h1>Welcome to <span>HappyTrip</span></h1>
+                    <h2> Take a look on our Transports </h2>
+
+                    <div class="btns">
+                        <a href="{{path('transport_index')}}" class="btn-menu animated fadeInUp scrollto">Transports </a>
+                        {% if app.user %}
+                            <a href="#" class="btn-book animated fadeInUp scrollto">Book Now</a>
+                        {% else %}
+                            <a href="{{ path('app_login') }}" class="btn-book animated fadeInUp scrollto">Login</a>
+                        {% endif %}
+                        <br>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section><!-- End Hero -->
+
+{% endblock %}
+
+{% block body %}
+
+    {% block About %}
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                        <!--tansport type-->
+                        <h3> Type de Transport : </h3>
+                        <h3>{{ transport.type }}
+                        </h3>
+                        <br>
+                        <h5>Localisation de Transport : <h5>
+                        <h5><i class="fa fa-map-marker style-map" aria-hidden="true"></i>&nbsp;&nbsp;   {{ transport.localisation }}</h5>
+                        <br>
+                        <!--prix-->
+                        <p class="font-italic">
+                       <h5> Prix de Transport : </h5>
+                       <h5>{{ transport.prix}}DT</h5>
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    {% endblock %}
+    {% endblock %}
+

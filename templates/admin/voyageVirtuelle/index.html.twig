@@ -1,0 +1,57 @@
+{% extends 'base2.html.twig' %}
+{% block title 'Gérer les voyages Virtuelles' %}
+{% block home %}
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+        <div class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
+            <h1>Gerer les voyages virtuelles</h1>
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+
+            <table class="table table-striped">
+                <thead>
+                <tr style="color: wheat">
+                    <th >Nom</th>
+                    <th>action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for voyageVirtuelle in voyageVirtuelles %}
+                    <tr>
+                        <td style="color: white">{{ voyageVirtuelle.NomVille }}</td>
+                        <td >
+                    <a href="{{ path('admin.voyageVirtuelle.edit' , {id : voyageVirtuelle.id }) }}" class="btn btn-secondary">Editer</a>
+                            <form
+                            method="post"
+                            action="{{ path('admin.voyageVirtuelle.delete' , {id : voyageVirtuelle.id}) }}"
+                            style="display: inline-block"
+                            onsubmit="return confirm('Etes vous sur de supprimer cette voyage virtuelle ? ')"
+                    >
+                                <input type="hidden" name="_method" value="DELETE" >
+                                <button class="btn btn-danger">Supprimer</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="text-right">
+                <a href="{{ path('admin.voyageVirtuelle.new') }}" class="btn btn-primary">Creer une nouvelle Voyagae</a>
+
+            </div>
+        </div>
+
+        </div>
+        </div>
+        </div>
+    </section><!-- End Hero -->
+{% endblock %}
+{% block body %}
+
+
+
+{% endblock %}

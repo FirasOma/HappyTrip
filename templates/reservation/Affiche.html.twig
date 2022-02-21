@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<table border="1" >
+    <tr>
+
+        <th>Id</th>
+        <th>TypeChambre</th>
+        <th>NombreDeChambre</th>
+        <th>Pension</th>
+        <th>Dispo</th>
+        <th>nbrDeNuits</th>
+        <td>categorieChambre</td>
+        <td>Delete</td>
+
+    </tr>
+    <tr>
+        {% for r in Reservation %}
+        <td>{{ r.id }}</td>
+        <td>{{ r.TypeChambre }}</td>
+        <td>{{ r.NombreDeChambre}}</td>
+        <td>{{ r.Pension }}</td>
+        <td>{{ r.Dispo }}</td>
+        <td>{{ r.nbreDeNuits}}</td>
+        <td>{{ r.categorieChambre}}</td>
+        <td><a href="{{ path('modifier',{'id':r.id}) }}">Modifier</a></td>
+
+        <td><a href="{{ path('d',{'id':r.id}) }}">Delete</a></td>
+    </tr> {% endfor %}
+
+
+
+</table>
+</body>
+</html>

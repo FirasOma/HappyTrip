@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ReservationTransport{% endblock %}
+
+{% block body %}
+    <h1>ReservationTransport</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ reservation_transport.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ reservation_transport.nom }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ reservation_transport.type }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ reservation_transport.mail }}</td>
+            </tr>
+            <tr>
+                <th>Datereservation</th>
+                <td>{{ reservation_transport.datereservation ? reservation_transport.datereservation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('reservation_transport_index') }}">back to list</a>
+
+    <a href="{{ path('reservation_transport_edit', {'id': reservation_transport.id}) }}">edit</a>
+
+    {{ include('reservation_transport/_delete_form.html.twig') }}
+{% endblock %}
